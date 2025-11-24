@@ -1,141 +1,107 @@
-:root{
---bg:#0b0b0d;
---panel:#131318;
---panel2:#1a1a20;
---border:#2b2b32;
---text:#f2f2f6;
---muted:#a8a8b1;
---green:#00e676;
---red:#ff5c5c;
---accent:#ffd35a;
+body {
+  margin: 0;
+  background: #0a0a0a;
+  font-family: Arial, sans-serif;
+  color: white;
 }
 
-*{box-sizing:border-box}
-html,body{height:100%; margin:0; font-family:Inter, system-ui, -apple-system, Roboto, Arial}
-
-body{
-background: radial-gradient(900px 400px at 10% -20%, #17171d 0%, transparent 60%), var(--bg);
-color:var(--text);
+header {
+  text-align: center;
+  padding: 12px;
+  background: #171717;
+  font-size: 26px;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
-/* Popup */
-.popup{position:fixed; inset:0; background:rgba(0,0,0,.86); display:flex; align-items:center; justify-content:center; z-index:999;}
-.popup-card{background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:20px; max-width:420px; text-align:center}
-.btn{padding:10px 16px; border:0; border-radius:999px; cursor:pointer; font-weight:700}
-.btn.primary{background:linear-gradient(180deg,#17e9a5,#0ecf8e); color:#042a21; box-shadow:0 8px 20px rgba(14,207,142,.12)}
-
-/* Header & Tabs */
-.site-header{padding:14px 14px 6px; text-align:center; border-bottom:1px solid var(--border)}
-.site-header h1{margin:6px 0 2px; font-size:28px; letter-spacing:2px;}
-.tabs{margin-top:12px; display:flex; gap:8px; justify-content:center}
-.tab{background:var(--panel2); border:1px solid var(--border); padding:8px 12px; color:var(--muted); border-radius:999px; cursor:pointer}
-.tab.active{background:linear-gradient(180deg, rgba(255,211,90,.06), transparent), var(--panel); color:var(--text); font-weight:700}
-
-/* Container */
-.container{max-width:1400px; margin:16px auto; padding:0 12px}
-.grid{display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); padding-bottom:30px; display:none}
-.grid.active-grid{display:grid}
-
-/* Cards */
-.card{background:linear-gradient(180deg, rgba(255,211,90,.03), transparent 30%), var(--panel); border:1px solid var(--border); border-radius:12px; padding:12px; box-shadow:0 10px 30px rgba(0,0,0,.35);}
-.card-head{display:flex; justify-content:space-between; align-items:center; gap:8px;}
-.status{font-size:12px; color:var(--muted)}
-.price{font-size:20px; color:#6be7ff; font-weight:700; margin:8px 0}
-.signal{font-size:13px; margin:6px 0}
-.levels{font-size:12px; color:var(--muted)}
-.timer{font-size:13px; color:var(--green); margin:8px 0}
-.card-circle{width:40px;height:40px;border-radius:50%;overflow:hidden;margin-right:8px;}
-.card-circle img{width:100%;height:100%;object-fit:cover;}
-.card-name{font-weight:700;}
-
-.hist-title{font-size:12px; color:var(--muted); margin:10px 0 6px}
-.history{display:flex; flex-direction:column; gap:8px; max-height:220px; overflow:auto}
-.hrow{display:flex; gap:8px; align-items:center; justify-content:space-between; background:var(--panel2); border:1px solid var(--border); padding:8px; border-radius:10px; font-size:13px}
-.hleft{display:flex; gap:8px; align-items:flex-start; flex-direction:column; text-align:left}
-.hright{min-width:110px; text-align:right; font-size:12px; color:var(--muted)}
-
-.badge{padding:4px 8px; border-radius:999px; font-size:12px; border:1px solid var(--border)}
-.badge.buy{color:var(--green)}
-.badge.sell{color:var(--red)}
-.badge.win{background:rgba(0,255,0,.08); color:#9dff9d}
-.badge.lose{background:rgba(255,0,0,.06); color:#ff9e9e}
-.badge.pending{color:var(--accent)}
-
-.site-footer{text-align:center;color:var(--muted);padding:20px 8px 40px}
-
-/* Instagram Button */
-.insta-btn { margin-bottom: 12px; }
-.insta-btn a {
-display: inline-block;
-padding: 10px 18px;
-font-size: 14px;
-font-weight: 700;
-border-radius: 999px;
-text-decoration: none;
-background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
-color: white;
-box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-transition: transform 0.2s ease;
-}
-.insta-btn a:hover { transform: scale(1.05); }
-
-
-/* --------------------------- */
-/* 🔥 BINARY NEW DESIGN HERE 🔥 */
-/* --------------------------- */
-
-.binary-box{
-background:var(--panel);
-border:1px solid var(--border);
-padding:20px;
-border-radius:12px;
-text-align:center;
-max-width:380px;
-margin:auto;
+.tabs {
+  display: flex;
+  justify-content: center;
+  background: #141414;
 }
 
-.binary-display{
-width:100%;
-height:200px;
-background:var(--panel2);
-border:1px solid var(--border);
-display:flex;
-align-items:center;
-justify-content:center;
-border-radius:12px;
-font-size:26px;
-font-weight:700;
-color:white;
+.tab {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background: #141414;
+  font-size: 18px;
+  color: gray;
+}
+.tab.active {
+  color: white;
+  border-bottom: 3px solid #00eaff;
 }
 
-.binary-buttons{
-margin-top:20px;
-display:flex;
-gap:12px;
-justify-content:center;
+.tab-content { display: none; padding: 12px; }
+.tab-content.visible { display: block; }
+
+.buy-sell-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+.buy-sell-buttons button {
+  padding: 12px 30px;
+  font-size: 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+#buyBtn { background: #00c853; color: white; }
+#sellBtn { background: #d50000; color: white; }
+
+.cards-area {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
 }
 
-.btn-win, .btn-lose{
-padding:10px 22px;
-border-radius:999px;
-border:0;
-font-weight:700;
-cursor:pointer;
+.card {
+  background: #111;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
 }
 
-.btn-win{background:var(--green); color:black;}
-.btn-lose{background:var(--red); color:white;}
-
-.binary-green{
-background:#0f0f0f url('data:image/svg+xml;utf8,<svg width="80" height="80" xmlns="http://www.w3.org/2000/svg"><polygon points="40,5 75,60 5,60" fill="lime"/></svg>') center no-repeat;
-background-size:80px;
+.card img {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  margin-bottom: 6px;
 }
 
-.binary-red{
-background:#0f0f0f url('data:image/svg+xml;utf8,<svg width="80" height="80" xmlns="http://www.w3.org/2000/svg"><polygon points="5,20 75,20 40,75" fill="red"/></svg>') center no-repeat;
-background-size:80px;
+.card-name {
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  text-transform: capitalize;
 }
 
-@media (max-width:768px){
-.grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+.signal {
+  margin: 8px 0;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.history {
+  font-size: 10px;
+  margin-top: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+}
+.green { color: #00e676; }
+.red { color: #ff1744; }
+
+/* 🔥 FIX — Rules tab click problem solved */
+.tab-content {
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+.tab-content.visible {
+  pointer-events: auto;
 }

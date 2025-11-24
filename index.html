@@ -1,80 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>NEXUS</title>
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Disclaimer -->
-<div id="disclaimer" class="popup">
-<div class="popup-card">
-<h2>⚠ Disclaimer</h2>
-<p>This Site Shows Automated BUY/SELL Signals .<br> Educational Purposes Only. <strong>Not Financial Advice.</strong></p>
-<button id="agreeBtn" class="btn primary">OK, I Understand</button>
-</div>
-</div>
-
-<header class="site-header">
-
-<!-- Instagram Button -->
-<div class="insta-btn">
-<a href="https://instagram.com/pruthviraj_donglikar" target="_blank">
-Follow For A Cookie :)
-</a>
-</div>
-
-<!-- Website Name -->
-<h1>NEXU$</h1>
-
-<!-- Tabs -->
-<nav class="tabs">
-<button class="tab active" data-target="btc">BiTcOiN</button>
-<button class="tab" data-target="eth">EtHeReUm</button>
-<button class="tab" data-target="binary">BiNaRy</button>
-</nav>
-
+<header>
+  <h1>  NEXU$  </h1>
 </header>
 
-
-<main class="container">
-
-<!-- BTC Cards Grid -->
-<section id="btc" class="grid active-grid" id="card-container">
-<!-- JS will inject 10 cards here -->
-</section>
-
-<!-- ETH section -->
-<section id="eth" class="grid"></section>
-
-<!-- BINARY SECTION (ADDED CONTENT ONLY HERE) -->
-<section id="binary" class="grid">
-
-<div class="binary-box">
-
-    <div class="binary-display" id="binaryDisplay">
-        CLICK WIN/LOSE
-    </div>
-
-    <div class="binary-buttons">
-        <button class="btn-win" id="winBtn">WIN</button>
-        <button class="btn-lose" id="loseBtn">LOSE</button>
-    </div>
-
-    <h3 class="hist-title" style="margin-top:20px;">Binary History</h3>
-    <div class="history" id="binaryHistory"></div>
-
+<div class="tabs">
+  <button class="tab active" data-target="trade">Trade</button>
+  <button class="tab" data-target="rules">Rules</button>
 </div>
 
+<!-- ███ TRADE SCREEN ███ -->
+<section id="trade" class="tab-content visible">
+
+  <div class="buy-sell-buttons">
+    <button id="buyBtn">BUY</button>
+    <button id="sellBtn">SELL</button>
+  </div>
+
+  <div id="cardsContainer" class="cards-area"></div>
+
 </section>
 
-</main>
+<!-- ███ RULES SCREEN ███ -->
+<section id="rules" class="tab-content">
+  <h2>Trading Rules</h2>
+  <ul>
+    <li>FoLlOw ThE TrEnD</li>
+    <li>CaLcUlAtE ThE RiSk</li>
+    <li>TrAdE</li>
+    <li>TrUsT ThE PrOcEsS</li>
+  </ul>
+</section>
 
-<footer class="site-footer">
-Made with ❤️ by NEXUS
-</footer>
+<script>
+  const tabs = document.querySelectorAll(".tab");
+  const contents = document.querySelectorAll(".tab-content");
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      tabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+
+      contents.forEach(c => c.classList.remove("visible"));
+      document.getElementById(tab.dataset.target).classList.add("visible");
+    });
+  });
+</script>
 
 <script src="script.js"></script>
 </body>
